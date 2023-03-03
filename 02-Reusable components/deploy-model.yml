@@ -1,0 +1,40 @@
+on:
+  # deploy using webhook
+  repository_dispatch:
+    types: [ deploy_model ]
+ 
+name: AzureMLDeploy
+
+jobs:
+  setup-aml-and-deploy:
+    runs-on: ubuntu-latest
+    env:
+      AZURE_SUBSCRIPTION: "431dbae5-40ca-438a-8daf-77d7d5580b41"
+      RESOURCE_GROUP: "Cybertron-RG"
+      AML_WORKSPACE: "Cybertron"
+
+    steps:
+    - name: Checkout Repository
+      id: checkout_repository
+      uses: actions/checkout@v2
+    
+    - run: 'echo "modelName: ${{ github.event.client_payload.modelName }}"'
+    - run: 'echo "modelVersion: ${{ github.event.client_payload.modelVersion }}"'
+
+    - name: Azure Login
+      uses: azure/login@v1
+      with:
+        creds: ${{ secrets.AZURE_CREDENTIALS }}
+        allow-no-subscriptions: true
+
+    - name: Azure CLI script - Deploy Model
+      uses: azure/CLI@v1
+      with:
+        azcliversion: 2.35.0
+        inlineScript: echo "Hello World"
+    - run: az extension add -n ml -y
+    - run: |
+          sed -i 's/__MODELNAME__/${{ github.event.client_payload.modelName }}/g' src/deployment/deployment.yml
+          sed -i 's/__MODELVERSION__/${{ github.event.client_payload.modelVersion }}/g' src/deployment/deployment.yml
+    - run: |
+          az ml online-deployment create --file src/deployment/deployment.yml --no-wait --subscription $AZURE_SUBSCRIPTION --resource-group $RESOURCE_GROUP --workspace-name $AML_WORKSPACE        

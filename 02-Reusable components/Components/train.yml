@@ -1,0 +1,32 @@
+$schema: https://azuremlschemas.azureedge.net/latest/commandComponent.schema.json
+type: command
+
+name: Ignite-TrainModel
+display_name: Train Pytorch Classification Model
+version: 1
+
+inputs:
+  training_data:
+    type: path
+  epochs:
+    type: integer
+    default: 8
+  learning_rate:
+    type: number
+    default: 0.001
+  momentum: 
+    type: number
+    default: 0.9
+  tag: 
+    type: string
+    default: "Ignite"
+
+outputs:
+  train_output:
+    type: path
+
+code: ./src
+
+environment: azureml:ignite-transferlearning-pytorch:1
+
+command: python train.py --data_path ${{inputs.training_data}} --model_output_path ${{outputs.train_output}} --num_epochs ${{inputs.epochs}} --learning_rate ${{inputs.learning_rate}} --momentum ${{inputs.momentum}} --tag ${{inputs.tag}} 
