@@ -23,13 +23,13 @@ if __name__ == '__main__':
     print('Run id:',run._root_run_id)
 
     pipeline_run = Run(run.experiment, run._root_run_id)
-    pipeline_run.upload_file(os.path.join("outputs", args.model_name, args.model_file_name), os.path.join(args.model_assets_path, args.model_file_name))
-    pipeline_run.upload_file(os.path.join("outputs", args.model_name, args.label_file_name), os.path.join(args.model_assets_path, args.label_file_name))
+    pipeline_run.upload_file(os.path.join("outputs", "model", args.model_file_name), os.path.join(args.model_assets_path, args.model_file_name))
+    pipeline_run.upload_file(os.path.join("outputs", "model", args.label_file_name), os.path.join(args.model_assets_path, args.label_file_name))
 
     tags = {
        "Source":"Register Model step"
     }
 
-    model = pipeline_run.register_model(model_name=args.model_name, model_path='outputs/'+args.model_name, tags=tags)
+    model = pipeline_run.register_model(model_name=args.model_name, model_path='outputs/model', tags=tags)
        
     print('Model registered: {} \nModel Description: {} \nModel Version: {}'.format(model.name, model.description, model.version))

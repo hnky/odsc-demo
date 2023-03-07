@@ -1,8 +1,8 @@
 $schema: https://azuremlschemas.azureedge.net/latest/commandComponent.schema.json
 type: command
 
-name: Ignite-TrainModel
-display_name: Train Pytorch Classification Model
+name: ignite_train_model
+display_name: Ignite - Train model
 version: 1
 
 inputs:

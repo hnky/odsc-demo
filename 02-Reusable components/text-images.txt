@@ -1,0 +1,16 @@
+https://raw.githubusercontent.com/hnky/dataset-lego-figures/master/_test/Krusty.jpg
+https://raw.githubusercontent.com/hnky/dataset-lego-figures/master/_test/Flanders.jpg
+https://raw.githubusercontent.com/hnky/dataset-lego-figures/master/_test/Homer.jpg
+https://raw.githubusercontent.com/hnky/dataset-lego-figures/master/_test/Lisa.jpg
+https://raw.githubusercontent.com/hnky/dataset-lego-figures/master/_test/MrBurns.jpg
+https://raw.githubusercontent.com/hnky/dataset-lego-figures/master/_test/Wiggum.jpg
+https://raw.githubusercontent.com/hnky/dataset-lego-figures/master/_test/wonderwomen.jpg
+https://raw.githubusercontent.com/hnky/dataset-lego-figures/master/_test/Emperor-Palpatine.jpg
+https://raw.githubusercontent.com/hnky/dataset-lego-figures/master/_test/Jar-Jar-Binks.jpg
+https://raw.githubusercontent.com/hnky/dataset-lego-figures/master/_test/Kit-Fisto.jpg
+https://raw.githubusercontent.com/hnky/dataset-lego-figures/master/_test/Yoda.jpg
+https://raw.githubusercontent.com/hnky/dataset-lego-figures/master/_test/bat-mite.jpg
+https://raw.githubusercontent.com/hnky/dataset-lego-figures/master/_test/batman.jpg
+https://raw.githubusercontent.com/hnky/dataset-lego-figures/master/_test/cheetah.jpg
+https://raw.githubusercontent.com/hnky/dataset-lego-figures/master/_test/stargirl.jpg
+https://raw.githubusercontent.com/hnky/dataset-lego-figures/master/_test/wonderwomen.jpg

@@ -1,9 +1,9 @@
 $schema: https://azuremlschemas.azureedge.net/latest/commandComponent.schema.json
 type: command
 
-name: RegisterModel
-display_name: Register model after run
-version: 1
+name: ignite_register_model
+display_name: Ignite - Register model after run
+version: 3
 
 inputs:
   model_assets_path:
@@ -20,6 +20,6 @@ inputs:
 
 code: ./src
 
-environment: azureml:lego-pytorch:3
+environment: azureml:ignite-transferlearning-pytorch:1
 
 command: python register.py --model_assets_path ${{inputs.model_assets_path}} --model_name ${{inputs.model_name}} --model_file_name ${{inputs.model_file_name}} --label_file_name ${{inputs.label_file_name}}

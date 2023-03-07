@@ -1,0 +1,35 @@
+$schema: https://azuremlschemas.azureedge.net/latest/pipelineJob.schema.json
+type: pipeline
+experiment_name: Ignite-Pipeline
+description: Pipeline to create a Lego Classifier in PyTorch
+display_name: Ignite - Pipeline - Test
+
+settings:
+  default_datastore: azureml:workspaceartifactstore
+  default_compute: azureml:UltraMagnus
+
+
+inputs:
+  training_data:
+    mode: ro_mount
+    path: azureml:LegoCharactersV2:2
+
+jobs:
+  train_model:
+    type: command
+    component: azureml:ignite_train_model:1
+    inputs:
+      training_data: ${{parent.inputs.training_data}}
+      epochs: 16
+      tag: "TEST7"
+    outputs:
+      train_output: 
+        mode: upload
+      
+  register_pytorch:
+    type: command
+    component: azureml:ignite_register_model:3
+    inputs:
+      model_assets_path: ${{parent.jobs.train_model.outputs.train_output}}
+      model_name: "pipeline-lego-pytorch"
+      model_file_name: "model.pth"

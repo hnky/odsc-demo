@@ -1,0 +1,11 @@
+$schema: https://azuremlschemas.azureedge.net/latest/managedOnlineDeployment.schema.json
+endpoint_name: lego-endpoint-test
+name: pipeline-lego-pytorch-1-v2
+app_insights_enabled: true
+model: azureml:pipeline-lego-pytorch:1
+code_configuration:
+  code: ./
+  scoring_script: score.py
+environment: azureml:AzureML-pytorch-1.7-ubuntu18.04-py37-cpu-inference:32
+instance_type: Standard_F8s_v2
+instance_count: 1
