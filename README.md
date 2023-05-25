@@ -1,1 +1,1 @@
-# ignite-spotlight-switzerland
+# odsc-demo
